@@ -81,7 +81,7 @@ export class UsersResolver {
     @GetUser() user: GetUserType,
   ) {
     const userInfo = await this.prisma.user.findUnique(args)
-    checkRowLevelPermission(user, user.uid)
+    checkRowLevelPermission(user, userInfo.uid)
     return this.usersService.remove(args)
   }
 }

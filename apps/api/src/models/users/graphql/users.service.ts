@@ -1,4 +1,3 @@
-import { AuthProvider } from './entity/user.entity'
 import {
   BadRequestException,
   Injectable,
