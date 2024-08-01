@@ -48,10 +48,10 @@ export class UsersService {
     })
 
     if (existingUser) {
-      throw new BadRequestException('User already exists')
+      throw new BadRequestException('User already exists with this email.')
     }
 
-    //Hash the password
+    // Hash the password
     const salt = bcrypt.genSaltSync()
     const passwordHash = bcrypt.hashSync(password, salt)
 
@@ -110,7 +110,7 @@ export class UsersService {
       },
     )
 
-    return { token: jwtToken }
+    return { token: jwtToken, user }
   }
 
   findAll(args: FindManyUserArgs) {
